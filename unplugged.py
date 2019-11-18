@@ -1,7 +1,5 @@
 import csv
 import os
-import pandas as pd
-import re
 
 unplugged_vehicle_id = []
 unplugged_vehicle_location = []
@@ -19,11 +17,11 @@ with open(csvpath, newline="") as csvfile:
     csv_header = next(csvreader)
 
     for row in csvreader:
-        if row[5] != "Field Tech":
+        if row[5] != "Field Tech" or "RTB - Needs Truck" or "RTB - Battery":
             charge_string = row[16]
             if row[12] == "false" and charge_string != "":
                 charge = float(charge_string[:3])
-                if charge < 95:
+                if charge < 50:
                     garage = row[7]
                     vehicle_id = row[0]
                     if garage == "Mission & 7th":
@@ -99,38 +97,26 @@ print("Unplugged Vehicles\n")
 print("North")
 print("---------------------------------") 
 if len(lombard_and_fillmore) > 0:
-    for item in map(str, lombard_and_fillmore):
-        item_padded = item.rjust(4)
-        print(item_padded + " : Lombard and Fillmore")
+    print("Lombard & Fillmore: " + ', '.join(map(str, lombard_and_fillmore)))
 if len(francisco_and_van_ness) > 0:    
-    for item in map(str, francisco_and_van_ness):
-        item_padded = item.rjust(4)
-        print(item_padded + " : Francisco and Van Ness")
+    print("Francisco & Van Ness: " + ', '.join(map(str, francisco_and_van_ness)))
 if len(beach_and_colombus) > 0:    
-    print("Beach and Columbus: " + ', '.join(map(str, beach_and_colombus)))
+    print("Beach & Columbus: " + ', '.join(map(str, beach_and_colombus)))
 if len(vallejo_and_stockton) > 0:    
-    print("Vallejo and Stockton: " + ', '.join(map(str, vallejo_and_stockton)))
+    print("Vallejo & Stockton: " + ', '.join(map(str, vallejo_and_stockton)))
 
 print("\n")
 
 print("West/Central")
 print("---------------------------------") 
 if len(fillmore_and_post) > 0:
-     for item in map(str, fillmore_and_post):
-        item_padded = item.rjust(4)
-        print(item_padded + " : Fillmore and Post")
+    print("Fillmore & Post: " + ', '.join(map(str, fillmore_and_post)))
 if len(fell_and_broderick) > 0:    
-     for item in map(str, fell_and_broderick):
-        item_padded = item.rjust(4)
-        print(item_padded + " : Fell and Broderick")
+    print("Fell & Broderick: " + ', '.join(map(str, fell_and_broderick)))
 if len(judah_and_twelfth) > 0:    
-     for item in map(str, judah_and_twelfth):
-        item_padded = item.rjust(4)
-        print(item_padded + " : Judah and Twelfth")
+    print("Judah & 12th: " + ', '.join(map(str, judah_and_twelfth)))
 if len(ucsf_parnassus) > 0:    
-     for item in map(str, ucsf_parnassus):
-        item_padded = item.rjust(4)
-        print(item_padded + " : UCSF Parnassus")
+    print("UCSF Parnassus: " + ', '.join(map(str, ucsf_parnassus)))
 
 print("\n")
 
@@ -139,53 +125,61 @@ print("---------------------------------")
 if len(sixteenth_and_mission) > 0:
     print("16th & Mission: " + ', '.join(map(str, sixteenth_and_mission)))
 if len(twentyfirst_and_valencia) > 0:    
-    print("21st and Valencia: " + ', '.join(map(str, twentyfirst_and_valencia)))
+    print("21st & Valencia: " + ', '.join(map(str, twentyfirst_and_valencia)))
 if len(twentyfourth_and_utah) > 0:    
-    print("24th and Utah: " + ', '.join(map(str, twentyfourth_and_utah)))
+    print("24th & Utah: " + ', '.join(map(str, twentyfourth_and_utah)))
 if len(ucsf_mission_bay) > 0:    
     print("UCSF Mission Bay: " + ', '.join(map(str, ucsf_mission_bay)))
 if len(mission_rock_and_fourth) > 0:    
-    print("Mission Rock and Fourth: " + ', '.join(map(str, mission_rock_and_fourth)))            
+    print("Mission Rock & 4th: " + ', '.join(map(str, mission_rock_and_fourth)))            
 
 print("\n")
 
 print("Financial District")
 print("---------------------------------") 
 if len(california_and_jones) > 0:
-    print("California and Jones: " + ', '.join(map(str, california_and_jones)))
+    print("California & Jones: " + ', '.join(map(str, california_and_jones)))
 if len(clay_and_front) > 0:    
-    print("Clay and Front: " + ', '.join(map(str, clay_and_front)))
+    print("Clay & Front: " + ', '.join(map(str, clay_and_front)))
 if len(pine_and_montgomery) > 0:    
-    print("Pine and Montgomery: " + ', '.join(map(str, pine_and_montgomery)))
+    print("Pine & Montgomery: " + ', '.join(map(str, pine_and_montgomery)))
 if len(kearny_and_pine) > 0:    
-    print("Kearny and Pine: " + ', '.join(map(str, kearny_and_pine)))
+    print("Kearny & Pine: " + ', '.join(map(str, kearny_and_pine)))
 if len(union_square) > 0:    
     print("Union Square " + ', '.join(map(str, union_square)))  
 if len(stockton_and_bush) > 0:    
-    print("Stockton and Bush: " + ', '.join(map(str, stockton_and_bush)))               
+    print("Stockton & Bush: " + ', '.join(map(str, stockton_and_bush)))               
 
 print("\n")
 
 print("SOMA West")
 print("---------------------------------") 
 if len(tenth_and_market) > 0:
-    print("10th and Market: " + ', '.join(map(str, tenth_and_market)))
+    print("10th & Market: " + ', '.join(map(str, tenth_and_market)))
 if len(mission_and_seventh) > 0:    
-    print("Mission and 7th: " + ', '.join(map(str, mission_and_seventh)))
+    print("Mission & 7th: " + ', '.join(map(str, mission_and_seventh)))
 if len(fifth_and_brannan) > 0:    
-    print("5th and Brannan: " + ', '.join(map(str, fifth_and_brannan)))
+    print("5th & Brannan: " + ', '.join(map(str, fifth_and_brannan)))
 if len(minna_and_fifth) > 0:    
-    print("Minna and 5th: " + ', '.join(map(str, minna_and_fifth)))
+    print("Minna & 5th: " + ', '.join(map(str, minna_and_fifth)))
 
 print("\n")
 
 print("SOMA East")
 print("---------------------------------") 
 if len(folsom_and_spear) > 0:
-    print("Folsom and Spear: " + ', '.join(map(str, folsom_and_spear)))
+    print("Folsom & Spear: " + ', '.join(map(str, folsom_and_spear)))
 if len(beale_and_folsom) > 0:    
-    print("Beale and Folsom: " + ', '.join(map(str, beale_and_folsom)))
+    print("Beale & Folsom: " + ', '.join(map(str, beale_and_folsom)))
 if len(third_and_folsom) > 0:    
-    print("3rd and Folsom: " + ', '.join(map(str, third_and_folsom)))
+    print("3rd & Folsom: " + ', '.join(map(str, third_and_folsom)))
 if len(lusk_and_townsend) > 0:    
-    print("Lusk and Townsend: " + ', '.join(map(str, lusk_and_townsend)))
+    print("Lusk & Townsend: " + ', '.join(map(str, lusk_and_townsend)))
+
+
+
+"""if len(judah_and_twelfth) > 0:    
+     for item in map(str, judah_and_twelfth):
+        item_padded = item.rjust(4)
+        print(item_padded + " : Judah and Twelfth")"""
+#checklist formatting           
