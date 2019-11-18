@@ -106,7 +106,6 @@ if len(vallejo_and_stockton) > 0:
     print("Vallejo & Stockton: " + ', '.join(map(str, vallejo_and_stockton)))
 
 print("\n")
-
 print("West/Central")
 print("---------------------------------") 
 if len(fillmore_and_post) > 0:
@@ -119,7 +118,6 @@ if len(ucsf_parnassus) > 0:
     print("UCSF Parnassus: " + ', '.join(map(str, ucsf_parnassus)))
 
 print("\n")
-
 print("Mission/Dogpatch/Mission Bay")
 print("---------------------------------") 
 if len(sixteenth_and_mission) > 0:
@@ -134,7 +132,6 @@ if len(mission_rock_and_fourth) > 0:
     print("Mission Rock & 4th: " + ', '.join(map(str, mission_rock_and_fourth)))            
 
 print("\n")
-
 print("Financial District")
 print("---------------------------------") 
 if len(california_and_jones) > 0:
@@ -151,7 +148,6 @@ if len(stockton_and_bush) > 0:
     print("Stockton & Bush: " + ', '.join(map(str, stockton_and_bush)))               
 
 print("\n")
-
 print("SOMA West")
 print("---------------------------------") 
 if len(tenth_and_market) > 0:
@@ -164,7 +160,6 @@ if len(minna_and_fifth) > 0:
     print("Minna & 5th: " + ', '.join(map(str, minna_and_fifth)))
 
 print("\n")
-
 print("SOMA East")
 print("---------------------------------") 
 if len(folsom_and_spear) > 0:
