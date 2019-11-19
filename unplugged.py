@@ -17,7 +17,7 @@ with open(csvpath, newline="") as csvfile:
     csv_header = next(csvreader)
 
     for row in csvreader:
-        if row[5] != "Field Tech" or "RTB - Needs Truck" or "RTB - Battery":
+        if row[5] != "Field Tech" or "[OOS] RTB - Needs Truck" or "[OOS] RTB - Battery ":
             charge_string = row[16]
             if row[12] == "false" and charge_string != "":
                 charge = float(charge_string[:3])
@@ -170,8 +170,11 @@ if len(third_and_folsom) > 0:
     print("3rd & Folsom: " + ', '.join(map(str, third_and_folsom)))
 if len(lusk_and_townsend) > 0:    
     print("Lusk & Townsend: " + ', '.join(map(str, lusk_and_townsend)))
-
-
+print("\n")
+unplugged_vehicle_tally = 0
+for i in garage_list:
+    unplugged_vehicle_tally += len(i)
+print("Number of unplugged vehicles: " + str(unplugged_vehicle_tally))    
 
 """if len(judah_and_twelfth) > 0:    
      for item in map(str, judah_and_twelfth):
