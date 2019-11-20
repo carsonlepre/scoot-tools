@@ -17,81 +17,80 @@ with open(csvpath, newline="") as csvfile:
     csv_header = next(csvreader)
 
     for row in csvreader:
-        if row[5] != "Field Tech" or "[OOS] RTB - Needs Truck" or "[OOS] RTB - Battery ":
-            charge_string = row[16]
-            if row[12] == "false" and charge_string != "":
-                charge = float(charge_string[:3])
-                if charge < 50:
-                    garage = row[7]
-                    vehicle_id = row[0]
-                    if garage == "Mission & 7th":
-                        mission_and_seventh.append(vehicle_id)
-                    elif garage == "Lusk & Townsend":
-                        lusk_and_townsend.append(vehicle_id)
-                    elif garage == "16th Ave & Geary":
-                        sixteenth_and_geary.append(vehicle_id)
-                    elif garage == "5th & Brannan":
-                        fifth_and_brannan.append(vehicle_id)
-                    elif garage == "Lombard & Fillmore":
-                        lombard_and_fillmore.append(vehicle_id)
-                    elif garage == "Mariposa & Potrero":
-                        mariposa_and_potrero.append(vehicle_id)
-                    elif garage == "3rd & Folsom":
-                        third_and_folsom.append(vehicle_id)
-                    elif garage == "Pine & Montgomery (Russ Building)":
-                        pine_and_montgomery.append(vehicle_id)
-                    elif garage == "Beach & Colombus":
-                        beach_and_colombus.append(vehicle_id)
-                    elif garage == "Minna & 5th":
-                        minna_and_fifth.append(vehicle_id)
-                    elif garage == "Union Square":
-                        union_square.append(vehicle_id)
-                    elif garage == "Laguna&Haight":
-                        laguna_and_haight.append(vehicle_id)
-                    elif garage == "Judah & 12th Ave":
-                        judah_and_twelfth.append(vehicle_id)
-                    elif garage == "Beach & Colombus":
-                        beach_and_colombus.append(vehicle_id)
-                    elif garage == "UCSF Mission Bay":
-                        ucsf_mission_bay.append(vehicle_id)
-                    elif garage == "UCSF Parnassus":
-                        ucsf_parnassus.append(vehicle_id)
-                    elif garage == "Clay & Front":
-                        clay_and_front.append(vehicle_id)
-                    elif garage == "16th & Mission":
-                        sixteenth_and_mission.append(vehicle_id)
-                    elif garage == "Stockton & Bush":
-                        stockton_and_bush.append(vehicle_id)
-                    elif garage == "California & Jones":
-                        california_and_jones.append(vehicle_id)
-                    elif garage == "Civic Center":
-                        civic_center.append(vehicle_id)
-                    elif garage == "Vallejo & Stockton":
-                        vallejo_and_stockton.append(vehicle_id)
-                    elif garage == "Fillmore & Post":
-                        fillmore_and_post.append(vehicle_id)
-                    elif garage == "Folsom & Spear":
-                        folsom_and_spear.append(vehicle_id)
-                    elif garage == "Beale & Folsom":
-                        beale_and_folsom.append(vehicle_id)    
-                    elif garage == "21st & Valencia":
-                        twentyfirst_and_valencia.append(vehicle_id)
-                    elif garage == "Fell & Broderick":
-                        fell_and_broderick.append(vehicle_id)
-                    elif garage == "10th & Market":
-                        tenth_and_market.append(vehicle_id)
-                    elif garage == "Mission Rock & 4th":
-                        mission_rock_and_fourth.append(vehicle_id)
-                    elif garage == "Kearny & Pine":
-                        kearny_and_pine.append(vehicle_id)
-                    elif garage == "Castro & Market":
-                        castro_and_market.append(vehicle_id)
-                    elif garage == "Francisco & Van Ness":
-                        francisco_and_van_ness.append(vehicle_id)
-                    elif garage == "24th & Utah":
-                        twentyfourth_and_utah.append(vehicle_id)
-                    elif garage == "Grove & Gough":
-                        grove_and_gough.append(vehicle_id)
+        charge_string = row[16]
+        if row[12] == "false" and charge_string != "" and row[4] != "Field Tech" and row[4] != "[OOS] RTB - Needs Truck" and row[4] != "[OOS] RTB - Battery ":
+            charge = float(charge_string[:3])
+            if charge < 50:
+                garage = row[7]
+                vehicle_id = row[0]
+                if garage == "Mission & 7th":
+                    mission_and_seventh.append(vehicle_id)
+                elif garage == "Lusk & Townsend":
+                    lusk_and_townsend.append(vehicle_id)
+                elif garage == "16th Ave & Geary":
+                    sixteenth_and_geary.append(vehicle_id)
+                elif garage == "5th & Brannan":
+                    fifth_and_brannan.append(vehicle_id)
+                elif garage == "Lombard & Fillmore":
+                    lombard_and_fillmore.append(vehicle_id)
+                elif garage == "Mariposa & Potrero":
+                    mariposa_and_potrero.append(vehicle_id)
+                elif garage == "3rd & Folsom":
+                    third_and_folsom.append(vehicle_id)
+                elif garage == "Pine & Montgomery (Russ Building)":
+                    pine_and_montgomery.append(vehicle_id)
+                elif garage == "Beach & Colombus":
+                    beach_and_colombus.append(vehicle_id)
+                elif garage == "Minna & 5th":
+                    minna_and_fifth.append(vehicle_id)
+                elif garage == "Union Square":
+                    union_square.append(vehicle_id)
+                elif garage == "Laguna&Haight":
+                    laguna_and_haight.append(vehicle_id)
+                elif garage == "Judah & 12th Ave":
+                    judah_and_twelfth.append(vehicle_id)
+                elif garage == "Beach & Colombus":
+                    beach_and_colombus.append(vehicle_id)
+                elif garage == "UCSF Mission Bay":
+                    ucsf_mission_bay.append(vehicle_id)
+                elif garage == "UCSF Parnassus":
+                    ucsf_parnassus.append(vehicle_id)
+                elif garage == "Clay & Front":
+                    clay_and_front.append(vehicle_id)
+                elif garage == "16th & Mission":
+                    sixteenth_and_mission.append(vehicle_id)
+                elif garage == "Stockton & Bush":
+                    stockton_and_bush.append(vehicle_id)
+                elif garage == "California & Jones":
+                    california_and_jones.append(vehicle_id)
+                elif garage == "Civic Center":
+                    civic_center.append(vehicle_id)
+                elif garage == "Vallejo & Stockton":
+                    vallejo_and_stockton.append(vehicle_id)
+                elif garage == "Fillmore & Post":
+                    fillmore_and_post.append(vehicle_id)
+                elif garage == "Folsom & Spear":
+                    folsom_and_spear.append(vehicle_id)
+                elif garage == "Beale & Folsom":
+                    beale_and_folsom.append(vehicle_id)    
+                elif garage == "21st & Valencia":
+                    twentyfirst_and_valencia.append(vehicle_id)
+                elif garage == "Fell & Broderick":
+                    fell_and_broderick.append(vehicle_id)
+                elif garage == "10th & Market":
+                    tenth_and_market.append(vehicle_id)
+                elif garage == "Mission Rock & 4th":
+                    mission_rock_and_fourth.append(vehicle_id)
+                elif garage == "Kearny & Pine":
+                    kearny_and_pine.append(vehicle_id)
+                elif garage == "Castro & Market":
+                    castro_and_market.append(vehicle_id)
+                elif garage == "Francisco & Van Ness":
+                    francisco_and_van_ness.append(vehicle_id)
+                elif garage == "24th & Utah":
+                    twentyfourth_and_utah.append(vehicle_id)
+                elif garage == "Grove & Gough":
+                    grove_and_gough.append(vehicle_id)
 print("Unplugged Vehicles\n")
 
 print("North")
